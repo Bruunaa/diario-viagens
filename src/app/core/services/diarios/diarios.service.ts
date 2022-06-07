@@ -46,6 +46,13 @@ export class DiariosService {
     );
   }
 
+  getUsuarioDiario(id: any): Observable<Diario[]> {
+    return collectionData(
+      query(this.diarios, where('usuarioId', '==', id)),
+      { idField: 'id' }
+    );
+  }
+
   getDiarioById(id: string): Observable<Diario> {
     const diarioDoc = doc(this.diarios, id);
     return docData(diarioDoc, { idField: 'id' });

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from '../shared/material.module';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule, 
+    RouterModule,
+    FontAwesomeModule
   ],
   exports: [ 
     NavbarComponent

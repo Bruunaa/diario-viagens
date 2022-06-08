@@ -16,6 +16,7 @@ import { DiariosModule } from './diarios/diarios.module';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { UsuarioModule } from './usuario/usuario.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,7 +36,8 @@ import { UsuarioModule } from './usuario/usuario.module';
     }),
     DashboardModule,
     NgChartsModule,
-    UsuarioModule
+    UsuarioModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent], 

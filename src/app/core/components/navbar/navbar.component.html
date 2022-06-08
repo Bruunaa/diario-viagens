@@ -1,4 +1,7 @@
-<mat-toolbar color="primary teste">
+<mat-toolbar color="primary">
+  <div >
+    <fa-icon [icon]="faGlobeAmericas"></fa-icon>
+  </div>
   <a mat-button routerLink="/login"><span class="texto-logo">Diário De Viagens</span></a>
   <span class="spacer"></span>
   <div *ngIf="logged$ | async; else unlogged" class="link-area">

@@ -15,6 +15,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { DiariosModule } from './diarios/diarios.module';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +34,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
       position: 'bottom-center',
     }),
     DashboardModule,
-    NgChartsModule
+    NgChartsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent], 

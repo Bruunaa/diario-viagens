@@ -1,3 +1,8 @@
+html, body { 
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .fab-wrapper {
   position: fixed;
   bottom: 16px;
@@ -19,4 +24,26 @@
 
 .mat-card:not([class*=mat-elevation-z]) {
   box-shadow: 7px 6px 12px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 20%);
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.mat-card{
+  margin: 15px auto ;
+  max-width: 400px;
+  min-width: 350px;
+  max-width: 300px ;
+  min-height: 200px;
+}
+
+.mat-card-image {
+  margin:auto;
+  align-content: center;
+  max-width: 350px;
+  min-width: 300px;
+  height: 250px;
 }

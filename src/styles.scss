@@ -1,9 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
-  height: 100%;
-}
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -28,3 +24,12 @@ form {
 .diario-add mat-form-field {
   width: 100%;
 }
+
+.google:hover{
+  background-color: rgb(196, 24, 24);
+}
+
+.fcb:hover{
+  background-color: rgba(2, 10, 117, 0.959);
+}
+

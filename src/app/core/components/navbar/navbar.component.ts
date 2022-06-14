@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth/auth.service';
-import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { HotToastService } from '@ngneat/hot-toast';
+
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,9 @@ import { HotToastService } from '@ngneat/hot-toast';
 })
 export class NavbarComponent implements OnInit {
 
-  faGlobeAmericas = faGlobeAmericas ;
+  isDarkTheme: boolean = false;
+
+  faGlobeAmericas = faPaperPlane ;
 
   constructor(
     private authService: AuthService,
@@ -29,5 +32,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.logged$ = this.authService.logged;
+    this.isDarkTheme = localStorage.getItem('theme')==="Dark" ? true : false;
+  }
+
+  storeThemeSelection() {
+    localStorage.setItem('theme', this.isDarkTheme? "Dark" : "Light");
   }
 }

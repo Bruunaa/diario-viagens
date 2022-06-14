@@ -1,3 +1,10 @@
+@use '@angular/material' as mat;
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+
+
 /* You can add global styles to this file, and also import other style files */
 
 body {
@@ -33,3 +40,27 @@ form {
   background-color: rgba(2, 10, 117, 0.959);
 }
 
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.define-palette(mat.$pink-palette);
+$light-theme: mat.define-light-theme((
+ color: (
+   primary: $light-primary,
+   accent: $light-accent,
+ )
+));
+
+$dark-primary: mat.define-palette(mat.$pink-palette);
+$dark-accent: mat.define-palette(mat.$blue-grey-palette);
+$dark-theme: mat.define-dark-theme((
+ color: (
+   primary: $dark-primary,
+   accent: $dark-accent,
+ )
+));
+
+
+@include mat.all-component-themes($light-theme);
+
+.dark-theme-mode {
+  @include angular-material-theme($dark-theme);
+}

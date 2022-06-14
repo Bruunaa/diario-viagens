@@ -1,19 +1,29 @@
-<mat-toolbar color="primary">
-  <div >
-    <fa-icon class="img-logo" [icon]="faGlobeAmericas"></fa-icon>
-  </div>
-  <a mat-button routerLink="/login"><span class="texto-logo">Diário De Viagens</span></a>
-  <span class="spacer"></span>
-  <div *ngIf="logged$ | async; else unlogged" class="link-area">
-    <a mat-button routerLink="/diarios">Diários</a>
-    <button mat-icon-button (click)="logout()">
-      <mat-icon>logout</mat-icon>
-    </button>
-  </div>
-  <ng-template #unlogged>
-    <div class="link-area">
-      <a mat-button routerLink="/login">Login</a>
-      <a mat-button routerLink="/cadastro">Cadastro</a>
+
+  <mat-sidenav-container class="mat-app-background" [ngClass]="{'dark-theme-mode': isDarkTheme }">
+  <mat-toolbar color="primary">
+    <div>
+      <fa-icon class="img-logo" [icon]="faGlobeAmericas"></fa-icon>
     </div>
-  </ng-template>
-</mat-toolbar>
+    <a mat-button routerLink="/login"><span class="texto-logo">Diário De Viagens</span></a
+    >
+    <span class="spacer"></span>
+    <div *ngIf="logged$ | async; else unlogged" class="link-area">
+      <a mat-button routerLink="/diarios">Diários</a>
+      <button mat-icon-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+
+    <mat-slide-toggle [(ngModel)]="isDarkTheme" labelPosition="before" (change)="storeThemeSelection()"><mat-icon>format_color_fill</mat-icon></mat-slide-toggle>
+
+
+
+    <ng-template #unlogged>
+      <div class="link-area">
+        <a mat-button routerLink="/login">Login</a>
+        <a mat-button routerLink="/cadastro">Cadastro</a>
+      </div>
+    </ng-template>
+
+  </mat-toolbar>
+</mat-sidenav-container>

@@ -4,6 +4,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from '../shared/material.module';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,12 +15,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     MaterialModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatSlideToggleModule,
+    FormsModule
   ],
-  exports: [ 
+  exports: [
     NavbarComponent
-  ],
+  ]
 })
 export class CoreModule {}
-
-

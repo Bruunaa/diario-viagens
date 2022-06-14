@@ -22,6 +22,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -29,7 +30,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
     CoreModule,
-    AuthModule, 
+    AuthModule,
     DiariosModule,
     HotToastModule.forRoot({
       position: 'bottom-center',
@@ -37,9 +38,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DashboardModule,
     NgChartsModule,
     UsuarioModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent], 
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

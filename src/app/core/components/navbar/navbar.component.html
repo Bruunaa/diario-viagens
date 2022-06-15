@@ -7,17 +7,17 @@
     <a mat-button routerLink="/login"><span class="texto-logo">Diário De Viagens</span></a
     >
     <span class="spacer"></span>
-    <div *ngIf="logged$ | async; else unlogged" class="link-area">
-      <a mat-button routerLink="/diarios">Diários</a>
-      <button mat-icon-button (click)="logout()">
+    <div *ngIf="logged$ | async as login; else unlogged" class="link-area">
+      <a mat-button routerLink="/diarios" matTooltip="rota-diário"
+      matTooltipPosition="below" matTooltopShowDelay="1000">Diários</a>
+      <a mat-button routerLink="/diarios" matTooltip="rota-perfil"
+      matTooltipPosition="below" matTooltopShowDelay="1000">{{login.email}}</a>
+      <button mat-icon-button (click)="logout()" matTooltip="saida">
         <mat-icon>logout</mat-icon>
       </button>
     </div>
-
-    <mat-slide-toggle [(ngModel)]="isDarkTheme" labelPosition="before" (change)="storeThemeSelection()"><mat-icon>format_color_fill</mat-icon></mat-slide-toggle>
-
-
-
+    <mat-slide-toggle [(ngModel)]="isDarkTheme" labelPosition="before" (change)="storeThemeSelection()">
+      <mat-icon>format_color_fill</mat-icon></mat-slide-toggle>
     <ng-template #unlogged>
       <div class="link-area">
         <a mat-button routerLink="/login">Login</a>

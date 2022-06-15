@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { canActivate, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
+import { FooterComponent } from '../core/components/footer/footer.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { LoginComponent } from './components/login/login.component';
 import { RecuperarSenhaComponent } from './components/recuperar-senha/recuperar-senha.component';
@@ -29,6 +30,11 @@ const routes: Routes = [
     component: UsuarioNaoVerificadoComponent,
     ...canActivate(redirectLoggedInToDiarios),
   },
+  {
+    path: 'footer',
+    component: FooterComponent,
+    ...canActivate(redirectLoggedInToDiarios),
+  }
 ];
 
 @NgModule({

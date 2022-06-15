@@ -5,7 +5,8 @@
         <mat-card *ngFor="let diario of diarios" class="example-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ diario.usuarioName }}</mat-card-title>
+            <mat-card-title (click)="getUsuarioId(diario.usuarioId!)" class="link">{{ diario.usuarioName }}
+            </mat-card-title>
             <mat-card-subtitle>{{ diario.usuarioNick }}</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image [src]="diario.imagem" alt="Photo of a Shiba Inu" />

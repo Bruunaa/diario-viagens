@@ -28,17 +28,6 @@ form {
   justify-content: center;
 }
 
-.diario-add mat-form-field {
-  width: 100%;
-}
-
-.google:hover{
-  background-color: rgb(196, 24, 24);
-}
-
-.fcb:hover{
-  background-color: rgba(2, 10, 117, 0.959);
-}
 
 $light-primary: mat.define-palette(mat.$indigo-palette);
 $light-accent: mat.define-palette(mat.$pink-palette);
@@ -63,4 +52,21 @@ $dark-theme: mat.define-dark-theme((
 
 .dark-theme-mode {
   @include angular-material-theme($dark-theme);
+}
+
+
+.google:hover{
+  background-color: rgb(196, 24, 24);
+}
+
+.fcb:hover{
+  background-color: rgba(2, 10, 117, 0.959);
+}
+
+.red{
+  color: rgb(230, 10, 32);
+}
+
+.v-middle{
+  vertical-align: middle;
 }

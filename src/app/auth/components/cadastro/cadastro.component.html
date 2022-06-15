@@ -1,106 +1,116 @@
 <div class="container">
-  <div class="cadastro">
-    <h2>Cadastro</h2>
-    <p>Seja bem-vindo(a)!</p>
-  </div>
-  <div class="form-wrapper">
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"></form>
-    <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Preencha seu nome</ng-template>
-          <mat-form-field appearance="fill">
-            <mat-label>Nome</mat-label>
-            <input matInput placeholder="Seu nome" formControlName="nome" required />
-            <mat-icon matPrefix>person</mat-icon>
-            <mat-error *ngIf="firstFormGroup.get('nome')?.errors?.['required']">Campo obrigatório</mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>Preencha seu nick</ng-template>
-          <mat-form-field appearance="fill">
-            <mat-label>Nick</mat-label>
-            <input matInput placeholder="Nick" formControlName="nick" required />
-            <mat-icon matPrefix>person</mat-icon>
-            <mat-error *ngIf="secondFormGroup.get('nick')?.errors?.['required']">Campo obrigatório</mat-error>
-          </mat-form-field>
+  <div class="formulario">
+    <div class="form-wrapper">
+      <div class="cadastro">
+        <h2>Cadastro</h2>
+        <p>Seja bem-vindo(a)!</p>
+      </div>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"></form>
+      <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Preencha seu nome</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Nome</mat-label>
+              <input matInput placeholder="Seu nome" formControlName="nome" required />
+              <mat-icon matPrefix>person</mat-icon>
+              <mat-error *ngIf="firstFormGroup.get('nome')?.errors?.['required']">Campo obrigatório</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Próximo</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Preencha seu nick</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Nick</mat-label>
+              <input matInput placeholder="Nick" formControlName="nick" required />
+              <mat-icon matPrefix>person</mat-icon>
+              <mat-error *ngIf="secondFormGroup.get('nick')?.errors?.['required']">Campo obrigatório</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Voltar</button>
+              <button mat-button matStepperNext>Próximo</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Preencha seu e-mail</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="email" required />
+              <mat-icon matPrefix>email</mat-icon>
+              <mat-error *ngIf="thirdFormGroup.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
+              <mat-error *ngIf="thirdFormGroup.get('email')?.errors?.['email']">Email inválido</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Voltar</button>
+              <button mat-button matStepperNext>Próximo</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="fourthFormGroup">
+          <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel>Preencha sua senha</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Senha</mat-label>
+              <input matInput placeholder=" Sua Senha" formControlName="senha" type="password" required />
+              <mat-icon key>senha</mat-icon>
+              <mat-icon matPrefix>key</mat-icon>
+              <mat-error *ngIf="fourthFormGroup.get('senha')?.errors?.['required']">Campo obrigatório</mat-error>
+              <mat-error *ngIf="fourthFormGroup.get('senha')?.errors?.['minlength']">O mínimo são 8 caracteres</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Voltar</button>
+              <button mat-button matStepperNext>Próximo</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="fifthFormGroup">
+          <form [formGroup]="fifthFormGroup">
+            <ng-template matStepLabel>Confirme sua senha</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Confirmar senha</mat-label>
+              <input matInput placeholder="Confirmar senha" formControlName="confirma_senha" type="password" />
+              <mat-icon matPrefix>key</mat-icon>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Voltar</button>
+              <button mat-button matStepperNext>Próximo</button>
+            </div>
+          </form>
+        
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Concluir</ng-template>
           <div>
             <button mat-button matStepperPrevious>Voltar</button>
-            <button mat-button matStepperNext>Next</button>
+            <button class="fcb"(click)="onSubmit()" mat-raised-button color="primary" [disabled]="fifthFormGroup.invalid"> Cadastrar
+            </button>
           </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="thirdFormGroup">
-        <form [formGroup]="thirdFormGroup">
-          <ng-template matStepLabel>Preencha seu e-mail</ng-template>
-          <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" formControlName="email" required />
-            <mat-icon matPrefix>email</mat-icon>
-            <mat-error *ngIf="thirdFormGroup.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
-            <mat-error *ngIf="thirdFormGroup.get('email')?.errors?.['email']">Email inválido</mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Voltar</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="fourthFormGroup">
-        <form [formGroup]="fourthFormGroup">
-          <ng-template matStepLabel>Preencha sua senha</ng-template>
-          <mat-form-field appearance="fill">
-            <mat-label>Senha</mat-label>
-            <input matInput placeholder=" Sua Senha" formControlName="senha" type="password" required />
-            <mat-icon key>senha</mat-icon>
-            <mat-icon matPrefix>key</mat-icon>
-            <mat-error *ngIf="fourthFormGroup.get('senha')?.errors?.['required']">Campo obrigatório</mat-error>
-            <mat-error *ngIf="fourthFormGroup.get('senha')?.errors?.['minlength']">O mínimo são 8 caracteres</mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Voltar</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="fifthFormGroup">
-        <form [formGroup]="fifthFormGroup">
-          <ng-template matStepLabel>Confirme sua senha</ng-template>
-          <mat-form-field appearance="fill">
-            <mat-label>Confirmar senha</mat-label>
-            <input matInput placeholder="Confirmar senha" formControlName="confirma_senha" type="password" />
-            <mat-icon matPrefix>key</mat-icon>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Voltar</button>
-            <button mat-button matStepperNext>Próximo</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Concluir</ng-template>
-        <div>
-          <button mat-button matStepperPrevious>Voltar</button>
-          <button (click)="onSubmit()" mat-raised-button color="primary" [disabled]="fifthFormGroup.invalid"> Cadastrar
-          </button>
-        </div>
-      </mat-step>
-    </mat-stepper>
-    <p><b style="margin: 60px">ou</b></p>
-    <p><button class="google" (click)="onLoginGoogle()" type="button" mat-raised-button color="warn">
-        Entrar com o google
+        </mat-step>
+      </mat-stepper>
+    </div>
+      <p><button class="google" (click)="onLoginGoogle()" type="button" mat-raised-button color="warn">
+          Entrar com o Google
+        </button>
+      </p>
+      <button class="fcb" (click)="onLoginFacebook()" type="button" mat-raised-button color="primary">
+        Entrar com o Facebook
       </button>
-    </p>
-    <button class="fcb" (click)="onLoginFacebook()" type="button" mat-raised-button color="primary"
-      style="margin: 5px 0px;">
-      Entrar com o facebook
-    </button>
-    <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
-    </ngx-recaptcha2>
+      <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha" class="cap" style="margin-bottom:65px;">
+      </ngx-recaptcha2>
+    </div>
+    <div>
+       <img class="imagem" style="float: right;" src="https://media-exp1.licdn.com/dms/image/C4D22AQFgXDYZ33gmCw/feedshare-shrink_800/0/1649681731139?e=1655942400&v=beta&t=qeTFlFALGYMysCwgkD8Mz-VyZZnCIc6WhwGyNAZIOOw">
+    </div>
   </div>
-</div>
+  
+   
+  
+  
+  
+  

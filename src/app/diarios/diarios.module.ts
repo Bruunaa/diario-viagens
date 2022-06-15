@@ -10,7 +10,6 @@ import { DiarioDetailComponent } from './components/diario-detail/diario-detail.
 import { DiarioEditComponent } from './components/diario-edit/diario-edit.component';
 import { DiarioListComponent } from './components/diario-list/diario-list.component';
 
-
 @NgModule({
   declarations: [
     DiarioAddComponent,

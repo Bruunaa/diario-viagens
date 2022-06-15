@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Observable } from 'rxjs';
 import { Diario } from 'src/app/core/models/diario';
@@ -15,11 +16,13 @@ import { DiarioEditComponent } from '../diario-edit/diario-edit.component';
 export class DiarioListComponent implements OnInit {
   allDiarios$?: Observable<Diario[]>;
   meusDiarios$?: Observable<Diario[]>;
+  diarioUsuario?: Observable<Diario[]>;
 
   constructor(
     private dialog: MatDialog,
     private diariosService: DiariosService,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private router: Router
   ) {} // Abrir dialogs baseado em componentes existentes
 
   onClickAdd() {
@@ -79,8 +82,14 @@ export class DiarioListComponent implements OnInit {
     }
   }
 
+  getUsuarioId(id: string) {
+    this.diarioUsuario = this.diariosService.getUsuarioDiario(id);
+    this.router.navigate([`${id}`]);
+  }
+
   ngOnInit(): void {
     this.allDiarios$ = this.diariosService.getTodosDiarios();
     this.meusDiarios$ = this.diariosService.getDiariosUsuario();
+    this.allDiarios$.subscribe(res => console.log(res))
   }
 }
